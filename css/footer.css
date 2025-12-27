@@ -1,0 +1,14 @@
+footer {
+    background-color: lightgray;
+    display: flex;
+}
+
+.center {
+    flex: 2;
+    text-align: center;
+}
+
+.sides {
+    flex: 1;
+    text-align: center;
+}
