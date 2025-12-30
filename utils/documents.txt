@@ -1,0 +1,7 @@
+📍 Latitud: aproximadamente 38.3452° N
+📍 Longitud: aproximadamente -0.4815° O
+
+https://open-meteo.com/
+
+
+https://api.open-meteo.com/v1/forecast?latitude=38.34&longitude=0.43&daily=temperature_2m_mean,precipitation_probability_mean,weather_code
