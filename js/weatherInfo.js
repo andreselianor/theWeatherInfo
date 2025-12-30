@@ -1,3 +1,5 @@
+
+
 var content = document.getElementById("content");
 var URL = "https://api.open-meteo.com/v1/forecast?latitude=38&longitude=0.48&hourly=temperature_2m";
 var URL2 = "https://api.open-meteo.com/v1/forecast?latitude=38.34&longitude=0.43&daily=temperature_2m_mean,precipitation_probability_mean,weather_code";
@@ -29,3 +31,14 @@ function showData(data) {
 }
 
 getWeather();
+
+class MyFooter extends HTMLElement {
+    connectedCallback() {
+        fetch("./html/footer.html")
+            .then(response => response.text())
+            .then(html => this.innerHTML = html)
+    }
+}
+
+
+customElements.define("my-footer", MyFooter);
