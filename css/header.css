@@ -1,0 +1,28 @@
+header{
+    background-color: beige;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+}
+
+#navigationleft {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 50px;
+    gap: 10px;
+}
+
+#navigationright {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+    gap: 10px;
+}
+
+.navigationButton {
+    display: flex;
+    align-items: center;
+}

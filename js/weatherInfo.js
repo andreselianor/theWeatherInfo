@@ -25,20 +25,25 @@ function showData(data) {
     let node1 = document.getElementById("temperature");
     let node2 = document.getElementById("precipitation");
     let node3 = document.getElementById("weatherCode");
-    node1.textContent = "C°: " + data.daily.temperature_2m_mean[0];
-    node2.textContent = "R%: " + data.daily.precipitation_probability_mean[0];
-    node3.textContent = "code: " + data.daily.weather_code[0];
+
+    node1.innerHTML =
+        `<p><i>temperature:</i></p>
+        ${data.daily.temperature_2m_mean[0]} C°
+    `
+    node2.innerHTML =
+        `<p><i>precipitation:</i></p>
+        ${data.daily.precipitation_probability_mean[0]} %
+    `
+    node3.innerHTML =
+        `<p><i>weather code:</i></p>
+        ${data.daily.weather_code[0]}
+    `
+
+
+
+    //node1.textContent = "C°: " + data.daily.temperature_2m_mean[0];
+    //node2.textContent = "R%: " + data.daily.precipitation_probability_mean[0];
+    //node3.textContent = "code: " + data.daily.weather_code[0];
 }
 
 getWeather();
-
-class MyFooter extends HTMLElement {
-    connectedCallback() {
-        fetch("./html/footer.html")
-            .then(response => response.text())
-            .then(html => this.innerHTML = html)
-    }
-}
-
-
-customElements.define("my-footer", MyFooter);

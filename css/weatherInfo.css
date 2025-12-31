@@ -7,37 +7,63 @@
     src: url(../fonts/Forum-Regular.ttf);
 }
 
-header {
-    width: 100%;
-    text-align: right;
-}
-
-nav {
-    display: inline-flex;
-    justify-content: flex-end;
-    gap: 25px;
-    align-items: center;
-    margin-right: var(--right-margin);
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 main {
     display: flex;
-    justify-content: center;
-}
-
-#content {
-    width: 100px;
+    flex-direction: column;
+    margin: auto auto;
     border-radius: 10px;
     background-color: whitesmoke;
     box-shadow: 5px 5px 5px grey;
+}
+
+#title {
+    text-align: center;
+    background-color: aquamarine;
+    font-style: italic;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+#contentDuo {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#contentSimple {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#temperature,
+#precipitation {
+    width: 100px;
     padding: 20px;
+    margin: 20px;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 10px;
+    background-color: brown;
     text-align: right;
 }
 
-* {
-    font-family: texts;
-}
-
-div {
-    margin: 3px;
+#weatherCode {
+    width: 74%;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 10px;
+    background-color: brown;
 }
