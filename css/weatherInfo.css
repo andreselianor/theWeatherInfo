@@ -4,7 +4,16 @@
 
 @font-face {
     font-family: texts;
-    src: url(../fonts/Forum-Regular.ttf);
+    src: url(../media/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: number;
+    src: url(../media/fonts/Rationale-Regular.ttf);
+}
+
+* {
+    font-family: texts;
 }
 
 body {
@@ -55,7 +64,7 @@ main {
     margin: 20px;
     box-shadow: 5px 5px 5px grey;
     border-radius: 10px;
-    background-color: brown;
+    background-color: rgba(165, 42, 42, 0.295);
     text-align: right;
 }
 
@@ -65,5 +74,25 @@ main {
     margin-bottom: 20px;
     box-shadow: 5px 5px 5px grey;
     border-radius: 10px;
-    background-color: brown;
+    background-color:  rgba(165, 42, 42, 0.295);
+}
+
+.listWeatherIcons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.weatherIcon {
+    width: 30px;
+}
+
+.cardData {
+    margin: 0px;
+    padding: 0px;
+    font-size: 40pt;
+    font-family: number;
+}
+
+.cardInfo {
+    font-size: 9pt;
 }

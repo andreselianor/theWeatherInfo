@@ -27,23 +27,18 @@ function showData(data) {
     let node3 = document.getElementById("weatherCode");
 
     node1.innerHTML =
-        `<p><i>temperature:</i></p>
-        ${data.daily.temperature_2m_mean[0]} C°
+        `<p class="cardData">${data.daily.temperature_2m_mean[0]}°</p>
+        <p class="cardInfo">temperature</p>
     `
     node2.innerHTML =
-        `<p><i>precipitation:</i></p>
-        ${data.daily.precipitation_probability_mean[0]} %
+        `<p class="cardData">${data.daily.precipitation_probability_mean[0]}%</p>
+        <p class="cardInfo">precipitation</p>
     `
-    node3.innerHTML =
-        `<p><i>weather code:</i></p>
-        ${data.daily.weather_code[0]}
+    if (data.daily.weather_code[0] != null) {
+        node3.innerHTML =
+            `<p class="cardData"><img class="logo" src="../media/icons/icon-sun.svg"></p>
+        <p class="cardInfo">weather code</p>
     `
-
-
-
-    //node1.textContent = "C°: " + data.daily.temperature_2m_mean[0];
-    //node2.textContent = "R%: " + data.daily.precipitation_probability_mean[0];
-    //node3.textContent = "code: " + data.daily.weather_code[0];
+    }
 }
-
 getWeather();

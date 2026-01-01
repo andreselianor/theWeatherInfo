@@ -1,4 +1,14 @@
-header{
+@font-face {
+    font-family: titles;
+    src: url(../media/fonts/Baskervville-Regular.ttf);
+}
+
+@font-face {
+    font-family: titles;
+    src: url(../media/fonts/Baskervville-Bold.ttf);
+}
+
+header {
     background-color: beige;
 }
 
@@ -12,17 +22,50 @@ nav {
     display: flex;
     justify-content: flex-start;
     margin-left: 50px;
-    gap: 10px;
+    gap: 30px;
+    align-items: center;
 }
 
 #navigationright {
     display: flex;
     justify-content: flex-end;
     margin-right: 50px;
-    gap: 10px;
+    gap: 30px;
 }
 
 .navigationButton {
     display: flex;
     align-items: center;
+}
+
+#navigationLeft p {
+    font-family: titles;
+    font-size: bold;
+}
+
+.logo {
+    width: 50px;
+}
+
+@keyframes movingLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    40% {
+        transform: rotate(50deg);
+    }
+
+    80% {
+        transform: rotate(-50deg);
+    }
+
+    120% {
+        transform: rotate(0deg);
+    }
+}
+
+.logo {
+    animation: movingLogo 5s ease-in-out infinite;
+
 }

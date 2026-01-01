@@ -8,3 +8,4 @@ class MyHeader extends HTMLElement {
 
 
 customElements.define("my-header", MyHeader);
+
