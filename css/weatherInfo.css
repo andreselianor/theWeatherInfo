@@ -1,5 +1,8 @@
 :root {
     --right-margin: 50px;
+    --color-one: #BBE0EFF2;
+    --color-two: #FF986A26;
+    
 }
 
 @font-face {
@@ -21,6 +24,11 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
+    background-color: rgba(255, 255, 255, 0.3);
+    background-image: url(../media/images/background.png);
+    background-size: 40%;
+    background-blend-mode: lighten;
+    background-position: 0px 120px;
 }
 
 main {
@@ -34,7 +42,7 @@ main {
 
 #title {
     text-align: center;
-    background-color: aquamarine;
+    background-color: var(--color-one);
     font-style: italic;
     border-radius: 10px 10px 0px 0px;
 }
@@ -64,7 +72,7 @@ main {
     margin: 20px;
     box-shadow: 5px 5px 5px grey;
     border-radius: 10px;
-    background-color: rgba(165, 42, 42, 0.295);
+    background-color: var(--color-two);
     text-align: right;
 }
 
@@ -74,7 +82,7 @@ main {
     margin-bottom: 20px;
     box-shadow: 5px 5px 5px grey;
     border-radius: 10px;
-    background-color:  rgba(165, 42, 42, 0.295);
+    background-color:  var(--color-two);
 }
 
 .listWeatherIcons {
@@ -91,6 +99,7 @@ main {
     padding: 0px;
     font-size: 40pt;
     font-family: number;
+    color: rgb(46, 16, 16);
 }
 
 .cardInfo {
