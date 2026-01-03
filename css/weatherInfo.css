@@ -2,7 +2,7 @@
     --right-margin: 50px;
     --color-one: #BBE0EFF2;
     --color-two: #FF986A26;
-    
+
 }
 
 @font-face {
@@ -17,6 +17,8 @@
 
 * {
     font-family: texts;
+    margin: 0px;
+    padding: 0px;
 }
 
 body {
@@ -37,7 +39,7 @@ main {
     margin: auto auto;
     border-radius: 10px;
     background-color: whitesmoke;
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 5px 5px 10px lightblue;
 }
 
 #title {
@@ -82,7 +84,7 @@ main {
     margin-bottom: 20px;
     box-shadow: 5px 5px 5px grey;
     border-radius: 10px;
-    background-color:  var(--color-two);
+    background-color: var(--color-two);
 }
 
 .listWeatherIcons {
@@ -99,9 +101,18 @@ main {
     padding: 0px;
     font-size: 40pt;
     font-family: number;
-    color: rgb(46, 16, 16);
+    color: rgb(94, 13, 13);
 }
 
 .cardInfo {
     font-size: 9pt;
+}
+
+.titleHead,
+.weatherIcon {
+    padding-top: 15px;
+}
+
+.weatherIcon {
+    padding-bottom: 15px;
 }
