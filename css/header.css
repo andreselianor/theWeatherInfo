@@ -43,6 +43,16 @@ nav {
     font-size: bold;
 }
 
+.navigationButton:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.movingLogo {
+    width: 50px;
+}
+
 .logo {
     width: 50px;
 }
@@ -65,7 +75,6 @@ nav {
     }
 }
 
-.logo {
+.movingLogo {
     animation: movingLogo 5s ease-in-out infinite;
-
 }

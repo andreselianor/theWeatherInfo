@@ -2,7 +2,6 @@
     --right-margin: 50px;
     --color-one: #BBE0EFF2;
     --color-two: #FF986A26;
-    
 }
 
 @font-face {
@@ -82,7 +81,7 @@ main {
     margin-bottom: 20px;
     box-shadow: 5px 5px 5px grey;
     border-radius: 10px;
-    background-color:  var(--color-two);
+    background-color: var(--color-two);
 }
 
 .listWeatherIcons {
@@ -104,4 +103,22 @@ main {
 
 .cardInfo {
     font-size: 9pt;
+}
+
+@keyframes movingWeatherCode {
+    0% {
+        transform: translateX(20px);
+    }
+
+    50% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(20px);
+    }
+}
+
+.movingWeatherLogo {
+    animation: movingWeatherCode 8s ease-in-out infinite;
 }

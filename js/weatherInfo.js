@@ -35,9 +35,9 @@ function showData(data) {
         <p class="cardInfo">precipitation</p>
     `
     if (data.daily.weather_code[0] != null) {
-        displayWeatherCode(data.daily.weather_code[0]);
+        let codeWeather = displayWeatherCode(data.daily.weather_code[0]);
         node3.innerHTML =
-            `<p class="cardData"><img class="logo" src="../media/icons/icon-sun.svg"></p>
+            `<p class="cardData"><img class="logo movingWeatherLogo" src="../media/icons/${codeWeather}"></p>
         <p class="cardInfo">weather code</p>
     `
     }
