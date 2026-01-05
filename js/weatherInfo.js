@@ -44,7 +44,7 @@ function showData(data) {
 }
 function displayWeatherCode(code) {
     if (code == 0 || code == 1 || code == 2)
-        return "icon-sun.svg";
+        return "icon-sunny.svg";
     if (code == 3)
         return "icon-cloudy.svg";
     if (code == 61 || code == 63 || code == 65)
@@ -55,7 +55,7 @@ function displayWeatherCode(code) {
         return "icon-snow.svg";
     if (code == 45 || code == 48 || code == 75)
         return "icon-fog.svg";
-    return "icon-sun.svg";
+    return "icon-sunny.svg";
 }
 
 getWeather();

@@ -1,14 +1,30 @@
 footer {
     background-color: lightgray;
     display: flex;
+    border-top: solid 1px grey;
+    height: 40px;
+    align-items: center;
+    font-size: 10pt;
 }
 
 .center {
     flex: 2;
     text-align: center;
+    align-items: center;
 }
 
 .sides {
     flex: 1;
     text-align: center;
+    align-items: center;
+}
+
+.footerIcon {
+    vertical-align: middle;
+    width: 20px;
+}
+
+.footerIconCC {
+    vertical-align: middle;
+    width: 15px;
 }

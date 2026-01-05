@@ -16,6 +16,8 @@
 
 * {
     font-family: texts;
+    margin: 0px;
+    padding: 0px;
 }
 
 body {
@@ -36,7 +38,7 @@ main {
     margin: auto auto;
     border-radius: 10px;
     background-color: whitesmoke;
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 5px 5px 10px lightblue;
 }
 
 #title {
@@ -98,7 +100,7 @@ main {
     padding: 0px;
     font-size: 40pt;
     font-family: number;
-    color: rgb(46, 16, 16);
+    color: rgb(94, 13, 13);
 }
 
 .cardInfo {
@@ -121,4 +123,13 @@ main {
 
 .movingWeatherLogo {
     animation: movingWeatherCode 8s ease-in-out infinite;
+}
+
+.titleHead,
+.weatherIcon {
+    padding-top: 15px;
+}
+
+.weatherIcon {
+    padding-bottom: 15px;
 }

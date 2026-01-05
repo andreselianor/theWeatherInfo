@@ -1,21 +1,33 @@
 @font-face {
     font-family: titles;
+    src: url(../media/fonts/Quintessential-Regular.ttf);
+}
+
+@font-face {
+    font-family: titlesAlt;
+    src: url(../media/fonts/RubikVinyl-Regular.ttf);
+}
+
+@font-face {
+    font-family: titlesAlt;
     src: url(../media/fonts/Baskervville-Regular.ttf);
 }
 
 @font-face {
-    font-family: titles;
+    font-family: titlesAltBold;
     src: url(../media/fonts/Baskervville-Bold.ttf);
 }
 
 header {
     background-color: beige;
+    border-bottom: solid 1px black;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     margin-right: 50px;
+    height: 70px;
 }
 
 #navigationleft {
@@ -38,9 +50,25 @@ nav {
     align-items: center;
 }
 
-#navigationLeft p {
+#navigationleft p {
     font-family: titles;
     font-size: bold;
+    font-size: 15pt;
+}
+
+#navigationright p {
+    font-family: titlesAlt;
+    font-size: 12pt;
+}
+
+#navigationright p:hover {
+    font-family: titlesAltBold;
+    cursor: pointer;
+}
+
+#navigationright a:hover {
+    font-family: titlesAltBold;
+    cursor: pointer;
 }
 
 .navigationButton:hover {
