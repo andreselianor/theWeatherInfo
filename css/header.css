@@ -18,6 +18,11 @@
     src: url(../media/fonts/Baskervville-Bold.ttf);
 }
 
+@font-face {
+    font-family: texts;
+    src: url(../media/fonts/Montserrat-Regular.ttf);
+}
+
 header {
     background-color: beige;
     border-bottom: solid 1px black;
@@ -57,25 +62,16 @@ nav {
 }
 
 #navigationright p {
-    font-family: titlesAlt;
-    font-size: 12pt;
+    font-family: texts;
+    font-size: 10pt;
 }
 
 #navigationright p:hover {
-    font-family: titlesAltBold;
+    font-family: texts;
     cursor: pointer;
-}
-
-#navigationright a:hover {
-    font-family: titlesAltBold;
-    cursor: pointer;
-}
-
-.navigationButton:hover {
     font-weight: bold;
-    cursor: pointer;
+    font-size: 10pt;
 }
-
 
 .movingLogo {
     width: 50px;

@@ -1,3 +1,9 @@
+* {
+    font-family: texts;
+    margin: 0px;
+    padding: 0px;
+}
+
 footer {
     background-color: lightgray;
     display: flex;

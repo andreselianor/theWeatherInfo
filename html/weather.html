@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Weather Forecast | Weather Info</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/weather.css'>
+    <script src='../js/weather.js'></script>
+</head>
+
+<body>
+    <my-header></my-header>
+
+    <main>
+  <style>
+    main {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #eef2f5;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.5rem;
+      width: 220px;
+      text-align: center;
+      box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.15),
+        0 4px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.2),
+        0 8px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .card h2 {
+      margin-bottom: 1rem;
+      color: #1e3a5f;
+      font-size: 1.1rem;
+    }
+
+    .value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ff7a00;
+    }
+
+    .info {
+      margin-top: 0.5rem;
+      color: #555;
+    }
+  </style>
+
+  <div class="cards">
+    <!-- Tiempo -->
+    <div class="card" id="tomorrow">
+      <h2>Mañana</h2>
+      <div class="value">-- °C</div>
+      <div class="info">Cargando...</div>
+    </div>
+
+    <div class="card" id="dayAfter">
+      <h2>Pasado mañana</h2>
+      <div class="value">-- °C</div>
+      <div class="info">Cargando...</div>
+    </div>
+
+    <!-- Nuevas cards -->
+    <div class="card" id="minTemp">
+      <h2>Temp. mínima</h2>
+      <div class="value">-- °C</div>
+      <div class="info">Mañana</div>
+    </div>
+
+    <div class="card" id="maxTemp">
+      <h2>Temp. máxima</h2>
+      <div class="value">-- °C</div>
+      <div class="info">Mañana</div>
+    </div>
+
+    <div class="card" id="wind">
+      <h2>Viento máx.</h2>
+      <div class="value">-- km/h</div>
+      <div class="info">Mañana</div>
+    </div>
+
+    <div class="card" id="sun">
+      <h2>Horas de sol</h2>
+      <div class="value">-- h</div>
+      <div class="info">Estimadas</div>
+    </div>
+
+    <div class="card" id="rain">
+      <h2>Lluvia</h2>
+      <div class="value">-- %</div>
+      <div class="info">Probabilidad</div>
+    </div>
+  </div>
+
+  <script>
+    const url = "https://api.open-meteo.com/v1/forecast?latitude=38.3452&longitude=-0.4810&daily=temperature_2m_max,temperature_2m_min,windspeed_10m_max,precipitation_probability_max,sunshine_duration&timezone=Europe/Madrid";
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const d = data.daily;
+
+        // Cards principales
+        document.querySelector("#tomorrow .value").textContent =
+          `${d.temperature_2m_max[1]}°C`;
+        document.querySelector("#tomorrow .info").textContent =
+          `Mín: ${d.temperature_2m_min[1]}°C`;
+
+        document.querySelector("#dayAfter .value").textContent =
+          `${d.temperature_2m_max[2]}°C`;
+        document.querySelector("#dayAfter .info").textContent =
+          `Mín: ${d.temperature_2m_min[2]}°C`;
+
+        // Cards adicionales
+        document.querySelector("#minTemp .value").textContent =
+          `${d.temperature_2m_min[1]}°C`;
+
+        document.querySelector("#maxTemp .value").textContent =
+          `${d.temperature_2m_max[1]}°C`;
+
+        document.querySelector("#wind .value").textContent =
+          `${d.windspeed_10m_max[1]} km/h`;
+
+        document.querySelector("#sun .value").textContent =
+          `${Math.round(d.sunshine_duration[1] / 3600)} h`;
+
+        document.querySelector("#rain .value").textContent =
+          `${d.precipitation_probability_max[1]} %`;
+      })
+      .catch(() => {
+        document.querySelectorAll(".info").forEach(el => {
+          el.textContent = "Error al cargar datos";
+        });
+      });
+  </script>
+</main>
+
+
+
+
+
+    <my-footer></my-footer>
+
+</body>
+
+</html>
