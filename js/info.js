@@ -29,7 +29,7 @@ function setElements(data) {
 
     let nodeDescription = document.createElement("p");
     nodeDescription.classList.add("descriptionElement");
-    nodeDescription.innerHTML = `<i>${data.endpoints[0].endpoint}</i><br><br>${data.endpoints[0].description};`
+    nodeDescription.innerHTML = `<i><a href="${data.endpoints[0].endpoint}" target="_blank">${data.endpoints[0].endpoint}<a/></i><br><br>${data.endpoints[0].description};`
     nodeRightPanel.appendChild(nodeDescription);
 }
 

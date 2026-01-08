@@ -5,6 +5,7 @@ main {
 #leftPanel {
     width: 30%;
     margin-left: 50px;
+    margin-right: 50px;
     margin-top: 10px;
 }
 
@@ -16,5 +17,10 @@ main {
 
 .descriptionElement {
     border-left: solid 1px rgb(131, 52, 24);
+    margin-top: 15px;
     padding-left: 10px;
+}
+
+.endpointElement {
+    margin-top: 15px;
 }

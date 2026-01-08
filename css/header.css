@@ -102,3 +102,13 @@ nav {
 .movingLogo {
     animation: movingLogo 5s ease-in-out infinite;
 }
+
+.noDecoration {
+    text-decoration: none;
+}
+
+@Media (width < 550px) {
+    .titleLogo {
+        display: none;
+    }
+}

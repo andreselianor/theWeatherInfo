@@ -2,7 +2,7 @@
     "endpoints": [
         {
             "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=38&longitude=0",
-            "title": "búqueda básica coordenades de Alicante",
+            "title": "Previsión del tiempo para datos de longitud y latitud correspondientes con la ciudad de Alicante. Esta es la petición básica, con los las variables obligatorias en cualquier consulta, longitud y latitud del lugar geográfico donde conseguir la previsión del tiempo.  ",
             "description": "Geographical WGS84 coordinates of the location. Multiple coordinates can be comma separated. E.g. &latitude=52.52,48.85&longitude=13.41,2.35. To return data for multiple locations the JSON output changes to a list of structures. CSV and XLSX formats add a column location_id. For North and South America locations use negative longitudes, because they lie west of Greenwich."
         }
     ]
