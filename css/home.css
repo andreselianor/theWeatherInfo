@@ -1,0 +1,135 @@
+:root {
+    --right-margin: 50px;
+    --color-one: #BBE0EFF2;
+    --color-two: #FF986A26;
+}
+
+@font-face {
+    font-family: texts;
+    src: url(../media/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: number;
+    src: url(../media/fonts/Rationale-Regular.ttf);
+}
+
+* {
+    font-family: texts;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.3);
+    background-image: url(../media/images/background.png);
+    background-size: 40%;
+    background-blend-mode: lighten;
+    background-position: 0px 120px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: auto auto;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 10px lightblue;
+}
+
+#title {
+    text-align: center;
+    background-color: var(--color-one);
+    font-style: italic;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+#contentDuo {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#contentSimple {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#temperature,
+#precipitation {
+    width: 100px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 10px;
+    background-color: var(--color-two);
+    text-align: right;
+}
+
+#weatherCode {
+    width: 74%;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 10px;
+    background-color: var(--color-two);
+}
+
+.listWeatherIcons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.weatherIcon {
+    width: 30px;
+}
+
+.cardData {
+    margin: 0px;
+    padding: 0px;
+    font-size: 40pt;
+    font-family: number;
+    color: rgb(94, 13, 13);
+}
+
+.cardInfo {
+    font-size: 9pt;
+}
+
+@keyframes movingWeatherCode {
+    0% {
+        transform: translateX(20px);
+    }
+
+    50% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(20px);
+    }
+}
+
+.movingWeatherLogo {
+    animation: movingWeatherCode 8s ease-in-out infinite;
+}
+
+.titleHead,
+.weatherIcon {
+    padding-top: 15px;
+}
+
+.weatherIcon {
+    padding-bottom: 15px;
+}
