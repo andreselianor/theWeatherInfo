@@ -2,8 +2,23 @@
     "endpoints": [
         {
             "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=38&longitude=0",
-            "title": "Previsión del tiempo para datos de longitud y latitud correspondientes con la ciudad de Alicante. Esta es la petición básica, con los las variables obligatorias en cualquier consulta, longitud y latitud del lugar geográfico donde conseguir la previsión del tiempo.  ",
-            "description": "Geographical WGS84 coordinates of the location. Multiple coordinates can be comma separated. E.g. &latitude=52.52,48.85&longitude=13.41,2.35. To return data for multiple locations the JSON output changes to a list of structures. CSV and XLSX formats add a column location_id. For North and South America locations use negative longitudes, because they lie west of Greenwich."
+            "title": "Previsión meteorológica básica por coordenadas geográficas (latitud y longitud)",
+            "description": "Coordenadas geográficas WGS84 de la ubicación. Se pueden indicar varias coordenadas separadas por comas. Por ejemplo: &latitude=52.52,48.85&longitude=13.41,2.35. Para devolver datos de múltiples ubicaciones, la salida JSON cambia a una lista de estructuras. Los formatos CSV y XLSX añaden una columna location_id. Para ubicaciones en América del Norte y del Sur se deben usar longitudes negativas, ya que se encuentran al oeste del meridiano de Greenwich."
+        },
+        {
+            "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=38&longitude=0&elevation=1",
+            "title": "Previsión meteorológica ajustada por altitud del terreno",
+            "description": "Altitud utilizada para el ajuste estadístico de los datos. Por defecto, se utiliza un modelo digital de elevación de 90 metros. Puedes establecer manualmente la elevación para que coincida correctamente con picos montañosos. Si se especifica &elevation=nan, el ajuste por altitud se desactiva y la API utiliza la altura media de la celda del modelo. Para múltiples ubicaciones, la elevación también puede indicarse separada por comas."
+        },
+        {
+            "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=38&longitude=0&hourly[0]",
+            "title": "Consulta de variables meteorológicas con resolución horaria",
+            "description": "Lista de variables meteorológicas horarias que se desean obtener. Los valores pueden separarse por comas o utilizar múltiples parámetros &hourly= en la URL."
+        },
+        {
+            "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=38&longitude=0&daily[0]",
+            "title": "Consulta de variables meteorológicas agregadas por día",
+            "description": "Lista de variables meteorológicas diarias agregadas que se desean obtener. Los valores pueden separarse por comas o utilizar múltiples parámetros &daily= en la URL. Si se especifican variables diarias, el parámetro timezone es obligatorio."
         }
     ]
 }

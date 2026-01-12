@@ -19,18 +19,25 @@ class MyFooter extends HTMLElement {
 customElements.define("my-footer", MyFooter);
 
 function setElements(data) {
-    let nodeLeftPanel = document.getElementById("leftPanel");
-    let nodeRightPanel = document.getElementById("rightPanel");
+    let nodeCentralPanel = document.getElementById("centralPanel");
 
-    let nodeTitle = document.createElement("p");
-    nodeTitle.classList.add("endpointElement");
-    nodeTitle.textContent = data.endpoints[0].title;
-    nodeLeftPanel.appendChild(nodeTitle);
+    data.endpoints.map(element => {
+        let container = document.createElement("div");
+        container.id = "element";
 
-    let nodeDescription = document.createElement("p");
-    nodeDescription.classList.add("descriptionElement");
-    nodeDescription.innerHTML = `<i><a href="${data.endpoints[0].endpoint}" target="_blank">${data.endpoints[0].endpoint}<a/></i><br><br>${data.endpoints[0].description};`
-    nodeRightPanel.appendChild(nodeDescription);
+        let nodeTitle = document.createElement("p");
+        nodeTitle.classList.add("endpointElement");
+        nodeTitle.textContent = element.title;
+
+        let nodeDescription = document.createElement("p");
+        nodeDescription.classList.add("descriptionElement");
+        nodeDescription.innerHTML = `<i><a href="${element.endpoint}" target="_blank">${element.endpoint}<a/></i><br><br>${element.description};`
+
+
+        container.append(nodeTitle);
+        container.append(nodeDescription);
+        nodeCentralPanel.appendChild(container);
+    });
 }
 
 function getJsonData() {

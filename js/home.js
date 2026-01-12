@@ -61,6 +61,7 @@ function displayWeatherCode(code) {
 getWeather();
 
 /*
+CODE WEATHER
 0	Clear sky
 1, 2, 3	Mainly clear, partly cloudy, and overcast
 45, 48	Fog and depositing rime fog

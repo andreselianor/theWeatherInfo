@@ -58,104 +58,101 @@
         <div class="value">-- %</div>
         <div class="info">Probabilidad</div>
       </div>
-
-      <!-- Previsión próximos días -->
-      <div class="card" id="day3">
-        <h2>Día +3</h2>
-        <div class="value">-- °C</div>
-        <div class="info">Mín: -- °C</div>
+      <div class="card" id="rainSum">
+        <h2>Lluvia total</h2>
+        <div class="value">-- mm</div>
+        <div class="info">Mañana</div>
+      </div>
+      <div class="card" id="precipHours">
+        <h2>Horas con lluvia</h2>
+        <div class="value">-- h</div>
+        <div class="info">Mañana</div>
+      </div>
+      <div class="card" id="sunriseSunset">
+        <h2>Sol: salida/puesta</h2>
+        <div class="value">-- / --</div>
+        <div class="info">Hora local</div>
+      </div>
+      <div class="card" id="windDirection">
+        <h2>Dirección del viento</h2>
+        <div class="value">--</div>
+        <div class="info">Dominante</div>
+      </div>
+      <div class="card" id="visibility">
+        <h2>Visibilidad</h2>
+        <div class="value">-- km</div>
+        <div class="info">Media diaria</div>
       </div>
 
-      <div class="card" id="day4">
-        <h2>Día +4</h2>
-        <div class="value">-- °C</div>
-        <div class="info">Mín: -- °C</div>
-      </div>
+      <script>
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=38.3452&longitude=-0.4810&daily=temperature_2m_max,temperature_2m_min,windspeed_10m_max,precipitation_probability_max,sunshine_duration,rain_sum,precipitation_hours,sunrise,sunset,winddirection_10m_dominant,visibility_mean&timezone=Europe/Madrid";
 
-      <div class="card" id="day5">
-        <h2>Día +5</h2>
-        <div class="value">-- °C</div>
-        <div class="info">Mín: -- °C</div>
-      </div>
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            const d = data.daily;
 
-      <div class="card" id="day6">
-        <h2>Día +6</h2>
-        <div class="value">-- °C</div>
-        <div class="info">Mín: -- °C</div>
-      </div>
+            // Cards principales
+            document.querySelector("#tomorrow .value").textContent =
+              `${d.temperature_2m_max[1]}°C`;
+            document.querySelector("#tomorrow .info").textContent =
+              `Mín: ${d.temperature_2m_min[1]}°C`;
 
-      <div class="card" id="day7">
-        <h2>Día +7</h2>
-        <div class="value">-- °C</div>
-        <div class="info">Mín: -- °C</div>
-      </div>
+            document.querySelector("#dayAfter .value").textContent =
+              `${d.temperature_2m_max[2]}°C`;
+            document.querySelector("#dayAfter .info").textContent =
+              `Mín: ${d.temperature_2m_min[2]}°C`;
 
-      <div class="card" id="day8">
-        <h2>Día +8</h2>
-        <div class="value">-- °C</div>
-        <div class="info">Mín: -- °C</div>
-      </div>
+            // Cards adicionales
+            document.querySelector("#minTemp .value").textContent =
+              `${d.temperature_2m_min[1]}°C`;
 
-      <div class="card" id="day9">
-        <h2>Día +9</h2>
-        <div class="value">-- °C</div>
-        <div class="info">Mín: -- °C</div>
-      </div>
-    </div>
+            document.querySelector("#maxTemp .value").textContent =
+              `${d.temperature_2m_max[1]}°C`;
 
-    <script>
-      const url = "https://api.open-meteo.com/v1/forecast?latitude=38.3452&longitude=-0.4810&daily=temperature_2m_max,temperature_2m_min,windspeed_10m_max,precipitation_probability_max,sunshine_duration&timezone=Europe/Madrid";
+            document.querySelector("#wind .value").textContent =
+              `${d.windspeed_10m_max[1]} km/h`;
 
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          const d = data.daily;
+            document.querySelector("#sun .value").textContent =
+              `${Math.round(d.sunshine_duration[1] / 3600)} h`;
 
-          // Cards principales
-          document.querySelector("#tomorrow .value").textContent =
-            `${d.temperature_2m_max[1]}°C`;
-          document.querySelector("#tomorrow .info").textContent =
-            `Mín: ${d.temperature_2m_min[1]}°C`;
+            document.querySelector("#rain .value").textContent =
+              `${d.precipitation_probability_max[1]} %`;
 
-          document.querySelector("#dayAfter .value").textContent =
-            `${d.temperature_2m_max[2]}°C`;
-          document.querySelector("#dayAfter .info").textContent =
-            `Mín: ${d.temperature_2m_min[2]}°C`;
+            document.querySelector("#rainSum .value").textContent =
+              `${d.rain_sum[1]} mm`;
 
-          // Cards adicionales
-          document.querySelector("#minTemp .value").textContent =
-            `${d.temperature_2m_min[1]}°C`;
+            document.querySelector("#precipHours .value").textContent =
+              `${d.precipitation_hours[1]} h`;
 
-          document.querySelector("#maxTemp .value").textContent =
-            `${d.temperature_2m_max[1]}°C`;
+            document.querySelector("#sunriseSunset .value").textContent =
+              `${new Date(d.sunrise[1]).getHours()}:${String(new Date(d.sunrise[1]).getMinutes()).padStart(2, '0')} — ${new Date(d.sunset[1]).getHours()}:${String(new Date(d.sunset[1]).getMinutes()).padStart(2, '0')}`;
 
-          document.querySelector("#wind .value").textContent =
-            `${d.windspeed_10m_max[1]} km/h`;
+            const deg = d.winddirection_10m_dominant[1];
 
-          document.querySelector("#sun .value").textContent =
-            `${Math.round(d.sunshine_duration[1] / 3600)} h`;
+            const directions = [
+              "Norte", "NordEste", "Este", "SurEste",
+              "Sur", "SurOeste", "Oeste", "NordOeste"
+            ];
 
-          document.querySelector("#rain .value").textContent =
-            `${d.precipitation_probability_max[1]} %`;
+            const index = Math.round(deg / 45) % 8;
+            const cardinal = directions[index];
 
-          // Cards previsión extendida
-          for (let i = 3; i <= 9; i++) {
-            const card = document.querySelector(`#day${i}`);
-            if (!card) continue;
+            document.querySelector("#windDirection .value").textContent =
+              `${cardinal}`;
 
-            card.querySelector(".value").textContent =
-              `${d.temperature_2m_max[i]}°C`;
+            const visibilityKm =
+              (d.visibility_mean[1] / 1000).toFixed(1);
 
-            card.querySelector(".info").textContent =
-              `Mín: ${d.temperature_2m_min[i]}°C`;
-          }
-        })
-        .catch(() => {
-          document.querySelectorAll(".info").forEach(el => {
-            el.textContent = "Error al cargar datos";
+            document.querySelector("#visibility .value").textContent =
+              `${visibilityKm} km`;
+          })
+          .catch(() => {
+            document.querySelectorAll(".info").forEach(el => {
+              el.textContent = "Error al cargar datos";
+            });
           });
-        });
-    </script>
+      </script>
   </main>
 
   <my-footer></my-footer>
