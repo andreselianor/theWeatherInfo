@@ -1,0 +1,55 @@
+.ecosistems {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    padding: 10px;
+}
+
+.circle-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin: 0px 20px;
+
+    /* Degradado multicolor */
+    background: linear-gradient(135deg, var(--c1), var(--c2), var(--c3), var(--c4));
+    background-size: 300% 300%;
+    animation: gradientAnim 4s ease infinite;
+
+    /* Sombra y transición */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto hover */
+.circle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Animación del degradado */
+@keyframes gradientAnim {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (width < 800px) {
+    .ecosistems {
+        display: none;
+    }
+}
