@@ -1,24 +1,64 @@
 {
     "endpoints": [
         {
+            "endpoint": "https://open-meteo.com/",
+            "title": "API de 'Open-Meteo'",
+            "description": "Esta URL nos lleva a la pagina principal de la API, desde donde podemos consultar los endpoints que contienen la información metereológica en un formato JSON, respuesta HTTP de la peticion POST."
+        },
+        {
             "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=38&longitude=0",
-            "title": "Previsión meteorológica básica por coordenadas geográficas (latitud y longitud)",
+            "title": "Previsión meteorológica básica por coordenadas geográficas (latitud y longitud).",
             "description": "Coordenadas geográficas WGS84 de la ubicación. Se pueden indicar varias coordenadas separadas por comas. Por ejemplo: &latitude=52.52,48.85&longitude=13.41,2.35. Para devolver datos de múltiples ubicaciones, la salida JSON cambia a una lista de estructuras. Los formatos CSV y XLSX añaden una columna location_id. Para ubicaciones en América del Norte y del Sur se deben usar longitudes negativas, ya que se encuentran al oeste del meridiano de Greenwich."
         },
         {
             "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=38&longitude=0&elevation=1",
-            "title": "Previsión meteorológica ajustada por altitud del terreno",
+            "title": "Previsión meteorológica ajustada por altitud del terreno.",
             "description": "Altitud utilizada para el ajuste estadístico de los datos. Por defecto, se utiliza un modelo digital de elevación de 90 metros. Puedes establecer manualmente la elevación para que coincida correctamente con picos montañosos. Si se especifica &elevation=nan, el ajuste por altitud se desactiva y la API utiliza la altura media de la celda del modelo. Para múltiples ubicaciones, la elevación también puede indicarse separada por comas."
         },
         {
             "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=38&longitude=0&hourly[0]",
-            "title": "Consulta de variables meteorológicas con resolución horaria",
+            "title": "Consulta de variables meteorológicas con resolución horaria.",
             "description": "Lista de variables meteorológicas horarias que se desean obtener. Los valores pueden separarse por comas o utilizar múltiples parámetros &hourly= en la URL."
         },
         {
             "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=38&longitude=0&daily[0]",
-            "title": "Consulta de variables meteorológicas agregadas por día",
+            "title": "Consulta de variables meteorológicas agregadas por día.",
             "description": "Lista de variables meteorológicas diarias agregadas que se desean obtener. Los valores pueden separarse por comas o utilizar múltiples parámetros &daily= en la URL. Si se especifican variables diarias, el parámetro timezone es obligatorio."
-        }
+        },
+        {
+            "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=40.4165&longitude=-3.7026&forecast_days=1",
+            "title": "Consulta de prevision sencilla de tiempo para la ciudad de Madrid.",
+            "description": "Es posible introducir las coordenadas de latitud y longitud para recibir la informacion del tiempo en esa localizacion. En este caso, se muestra la prevision del tiempo para un unico día."
+        },
+        {
+            "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=40.4165,48.8534,45.7726&longitude=-3.7026,2.3488,12.2375&forecast_days=1",
+            "title": "Consulta de prevision del tiempo para tres capitales europeas.",
+            "description": "Es posible conseguir la prevision del tiempo para diferentes localizaciones, según sus coordenadas de latitud y longitud. De esta manera se puede consultar el tiempo en cualquier ciudad del mundo."
+        },
+        {
+            "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=40.4165&longitude=-3.7026&start_date=2026-01-15&end_date=2026-01-29",
+            "title": "Prevision del tiempo en un rango de fechas.",
+            "description": "Las opciones de Fecha de inicio y Fecha de fin te ayudan a elegir un rango de fechas. Puedes acceder a pronósticos de hasta 3 meses. También puedes consultar nuestra API de Clima Histórico, que proporciona datos desde 1940."
+        },
+        {
+            "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=40.4165&longitude=-3.7026&hourly=temperature_2m,relative_humidity_2m,precipitation_probability,rain,showers,apparent_temperature&forecast_days=3",
+            "title": "Probabilidad de lluvia para la ciudad de Madrid.",
+            "description": "La respuesta tipo JSON muestra la prevision de lluvia para la ciudad de Madrid para los proximos tres dias. Ademas de lluvia, tormenta y nieve, muestra otros datos relativos a la lluvia."
+        },
+        {
+            "endpoint": "https://api.open-meteo.com/v1/forecast?latitude=51.5085&longitude=-0.1257&hourly=wind_speed_10m,weather_code,pressure_msl,surface_pressure,cloud_cover&forecast_days=3",
+            "title": "Prevision de estados de alerta por viento en la ciudad de Londres.",
+            "description": "Una previsión para los tres siguientes días que informa de los posibles estados de alerta por condiciones metereológicas de fuertes vientos adversos."
+        },
+        {
+            "endpoint": "'Historias de usuario'",
+            "title": "Las historias de usuario",
+            "description": "Son un programa de necesidades de cada usuario, para realizar una acción en concreto usando nuestra aplicacion."
+        },
+        {
+            "endpoint": "'Interfaz basada en Ecosistemas'",
+            "title": "Las historias de un colectivo de usuarios",
+            "description": "Son las historias de un ecosistema funcional o también llamado 'Red Social'. Todas las historias del colectivo conforman un ecosistema que funciona con la interacción de otros ecosistemas a través de conexiones digitales entre ellos."
+        }        
     ]
 }

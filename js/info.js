@@ -31,7 +31,7 @@ function setElements(data) {
 
         let nodeDescription = document.createElement("p");
         nodeDescription.classList.add("descriptionElement");
-        nodeDescription.innerHTML = `<i><a href="${element.endpoint}" target="_blank">${element.endpoint}<a/></i><br><br>${element.description};`
+        nodeDescription.innerHTML = `<i><a href="${element.endpoint}" target="_blank">${element.endpoint}<a/></i><br><br>${element.description}`
 
 
         container.append(nodeTitle);

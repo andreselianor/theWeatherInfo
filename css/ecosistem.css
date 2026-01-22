@@ -31,6 +31,7 @@
 .circle-btn:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    border: solid 2px rgb(214, 166, 77);
 }
 
 /* Animación del degradado */
@@ -52,4 +53,14 @@
     .ecosistems {
         display: none;
     }
+}
+
+.arrow-btn {
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14pt;
+    color: darkslateblue;
+    background-color: transparent;
+    border: none;
+    margin: 0 10px;
 }
