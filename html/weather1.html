@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Weather Forecast | Weather Info</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='icon' type='icon' href='../media/icons/icon.svg'>
+  <link rel='stylesheet' type='text/css' media='screen' href='../css/weather.css'>
+  <link rel='stylesheet' type='text/css' media='screen' href='../css/ecosistem.css'>
+</head>
+
+<body>
+  <my-header></my-header>
+
+  <main>
+    <div class="ecosistems">
+      <button class="arrow-btn"><</button>
+      <button class="circle-btn" style="--c1:#ff6b6b; --c2:#feca57; --c3:#1dd1a1; --c4:#5f27cd;" title="alicante"></button>
+      <button class="circle-btn" style="--c1:#ff9f43; --c2:#ee5253; --c3:#54a0ff; --c4:#00d2d3;" title="capitales"></button>
+      <button class="circle-btn" style="--c1:#1dd1a1; --c2:#10ac84; --c3:#f368e0; --c4:#5f27cd;" title="la mar"></button>
+      <button class="circle-btn" style="--c1:#ff6b6b; --c2:#48dbfb; --c3:#ff9f43; --c4:#341f97;" title="nevadas"></button>
+      <button class="circle-btn" style="--c1:#00d2d3; --c2:#feca57; --c3:#ff6b6b; --c4:#5f27cd;" title="15 dias"></button>
+      <button class="circle-btn" style="--c1:#f368e0; --c2:#ff9f43; --c3:#1dd1a1; --c4:#54a0ff;" title="pescadores / marisqueras"></button>
+      <button class="circle-btn" style="--c1:#5f27cd; --c2:#48dbfb; --c3:#ff6b6b; --c4:#feca57;" title="alertas"></button>
+      <button class="circle-btn" style="--c1:#10ac84; --c2:#341f97; --c3:#ff9f43; --c4:#f368e0;" title="mareas"></button>
+      <button class="circle-btn" style="--c1:#ff9f43; --c2:#1dd1a1; --c3:#54a0ff; --c4:#ff6b6b;" title="deporte"></button>
+      <button class="circle-btn" style="--c1:#48dbfb; --c2:#5f27cd; --c3:#feca57; --c4:#ff9f43;" title="salvamento"></button>      
+      <button class="arrow-btn">></button>
+    </div>
+    <div class="cards">
+      <!-- Tiempo -->
+      <div class="card" id="tomorrow">
+        <h2>Mañana</h2>
+        <div class="value">-- °C</div>
+        <div class="info">Cargando...</div>
+      </div>
+
+      <div class="card" id="dayAfter">
+        <h2>Pasado mañana</h2>
+        <div class="value">-- °C</div>
+        <div class="info">Cargando...</div>
+      </div>
+
+      <!-- Nuevas cards -->
+      <div class="card" id="minTemp">
+        <h2>Temp. mínima</h2>
+        <div class="value">-- °C</div>
+        <div class="info">Mañana</div>
+      </div>
+
+      <div class="card" id="maxTemp">
+        <h2>Temp. máxima</h2>
+        <div class="value">-- °C</div>
+        <div class="info">Mañana</div>
+      </div>
+
+      <div class="card" id="wind">
+        <h2>Viento máx.</h2>
+        <div class="value">-- km/h</div>
+        <div class="info">Mañana</div>
+      </div>
+
+      <div class="card" id="sun">
+        <h2>Horas de sol</h2>
+        <div class="value">-- h</div>
+        <div class="info">Estimadas</div>
+      </div>
+
+      <div class="card" id="rain">
+        <h2>Lluvia</h2>
+        <div class="value">-- %</div>
+        <div class="info">Probabilidad</div>
+      </div>
+      <div class="card" id="rainSum">
+        <h2>Lluvia total</h2>
+        <div class="value">-- mm</div>
+        <div class="info">Mañana</div>
+      </div>
+      <div class="card" id="precipHours">
+        <h2>Horas con lluvia</h2>
+        <div class="value">-- h</div>
+        <div class="info">Mañana</div>
+      </div>
+      <div class="card" id="sunriseSunset">
+        <h2>Sol: salida/puesta</h2>
+        <div class="value">-- / --</div>
+        <div class="info">Hora local</div>
+      </div>
+      <div class="card" id="windDirection">
+        <h2>Dirección del viento</h2>
+        <div class="value">--</div>
+        <div class="info">Dominante</div>
+      </div>
+      <div class="card" id="visibility">
+        <h2>Visibilidad</h2>
+        <div class="value">-- km</div>
+        <div class="info">Media diaria</div>
+      </div>
+
+      <script>
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=38.3452&longitude=-0.4810&daily=temperature_2m_max,temperature_2m_min,windspeed_10m_max,precipitation_probability_max,sunshine_duration,rain_sum,precipitation_hours,sunrise,sunset,winddirection_10m_dominant,visibility_mean&timezone=Europe/Madrid";
+
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            const d = data.daily;
+
+            // Cards principales
+            document.querySelector("#tomorrow .value").textContent =
+              `${d.temperature_2m_max[1]}°C`;
+            document.querySelector("#tomorrow .info").textContent =
+              `Mín: ${d.temperature_2m_min[1]}°C`;
+
+            document.querySelector("#dayAfter .value").textContent =
+              `${d.temperature_2m_max[2]}°C`;
+            document.querySelector("#dayAfter .info").textContent =
+              `Mín: ${d.temperature_2m_min[2]}°C`;
+
+            // Cards adicionales
+            document.querySelector("#minTemp .value").textContent =
+              `${d.temperature_2m_min[1]}°C`;
+
+            document.querySelector("#maxTemp .value").textContent =
+              `${d.temperature_2m_max[1]}°C`;
+
+            document.querySelector("#wind .value").textContent =
+              `${d.windspeed_10m_max[1]} km/h`;
+
+            document.querySelector("#sun .value").textContent =
+              `${Math.round(d.sunshine_duration[1] / 3600)} h`;
+
+            document.querySelector("#rain .value").textContent =
+              `${d.precipitation_probability_max[1]} %`;
+
+            document.querySelector("#rainSum .value").textContent =
+              `${d.rain_sum[1]} mm`;
+
+            document.querySelector("#precipHours .value").textContent =
+              `${d.precipitation_hours[1]} h`;
+
+            document.querySelector("#sunriseSunset .value").textContent =
+              `${new Date(d.sunrise[1]).getHours()}:${String(new Date(d.sunrise[1]).getMinutes()).padStart(2, '0')} — ${new Date(d.sunset[1]).getHours()}:${String(new Date(d.sunset[1]).getMinutes()).padStart(2, '0')}`;
+
+            const deg = d.winddirection_10m_dominant[1];
+
+            const directions = [
+              "Norte", "NordEste", "Este", "SurEste",
+              "Sur", "SurOeste", "Oeste", "NordOeste"
+            ];
+
+            const index = Math.round(deg / 45) % 8;
+            const cardinal = directions[index];
+
+            document.querySelector("#windDirection .value").textContent =
+              `${cardinal}`;
+
+            const visibilityKm =
+              (d.visibility_mean[1] / 1000).toFixed(1);
+
+            document.querySelector("#visibility .value").textContent =
+              `${visibilityKm} km`;
+          })
+          .catch(() => {
+            document.querySelectorAll(".info").forEach(el => {
+              el.textContent = "Error al cargar datos";
+            });
+          });
+      </script>
+  </main>
+
+  <my-footer></my-footer>
+
+  <script src='../js/weather.js'></script>
+  <script src='../js/header.js'></script>
+  <script src='../js/footer.js'></script>
+</body>
+
+</html>
