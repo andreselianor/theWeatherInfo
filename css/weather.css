@@ -16,7 +16,7 @@ main {
     min-height: 80vh;
 }
 
-my-footer{
+my-footer {
     margin-top: auto;
 }
 
@@ -64,8 +64,16 @@ my-footer{
     color: #555;
 }
 
-.layer{
+.layer {
+    display: inline-flex;
+    gap: 70px;
+}
+
+.block {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .gif {
@@ -75,10 +83,11 @@ my-footer{
     position: absolute;
 }
 
-.border{
+.border {
     width: 30px;
     height: 30px;
     border: solid 1px grey;
     border-radius: 4px;
     position: absolute;
+    left: -13px;
 }

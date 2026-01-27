@@ -156,23 +156,38 @@
       let value = document.createElement("div");
       let description = document.createElement("div");
       let image = document.createElement("img");
+      let image2 = document.createElement("img");
       let border = document.createElement("img");
+      let border2 = document.createElement("img");
       let layer = document.createElement("div");
+      let block = document.createElement("div");
+      let block2 = document.createElement("div");
 
       element.classList.add("card");
       value.classList.add("value");
       description.classList.add("info");
       image.classList.add("gif");
+      image2.classList.add("gif");
       border.classList.add("border");
-      layer.classList.add("layer")
+      border2.classList.add("border");
+      layer.classList.add("layer");
+      block.classList.add("block");
+      block2.classList.add("block");
 
       title.textContent = cardTitle;
       value.textContent = jsonData;
       description.textContent = cardDescription;
       image.src = "../media/gifs/rain.gif"
-      layer.append(image);
-      layer.append(border);
+      image2.src = "../media/gifs/rain.gif"
+      block.append(image);
+      block.append(border);
+      block2.append(image2);
+      block2.append(border2);
+      //block.append(image2);
+      //layer.append(border);
 
+      layer.append(block);
+      layer.append(block2);
       element.append(layer);
       element.append(description);
       element.append(value);
