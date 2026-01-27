@@ -1,3 +1,10 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
 main {
     font-family: Arial, sans-serif;
     padding: 0 2rem 2rem 2rem;
@@ -6,6 +13,11 @@ main {
     background-size: 40%;
     background-blend-mode: lighten;
     background-position: 0px 120px;
+    min-height: 80vh;
+}
+
+my-footer{
+    margin-top: auto;
 }
 
 #cards {
@@ -13,6 +25,7 @@ main {
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+    margin-top: 10px;
 }
 
 .card {
@@ -49,4 +62,12 @@ main {
 .info {
     margin-top: 0.5rem;
     color: #555;
+}
+
+.gif {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border: solid 1px grey;
+    border-radius: 4px;
 }

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
   <meta charset='utf-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Weather Forecast | Weather Info</title>
+  <title>Weather Forecast | Weather Ecosystems</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='icon' type='icon' href='../media/icons/icon.svg'>
   <link rel='stylesheet' type='text/css' media='screen' href='../css/weather.css'>
   <link rel='stylesheet' type='text/css' media='screen' href='../css/ecosistem.css'>
+  <script src='../js/weather.js' defer></script>
+  <script src='../js/header.js' defer></script>
+  <script src='../js/footer.js' defer></script>
+  <script src='../js/movement.js' defer></script>
 </head>
 
 <body>
@@ -17,10 +21,10 @@
   <main>
     <div class="ecosistems">
       <button class="arrow-btn">&lt;</button>
-      <button class="circle-btn" style="--c1:#ff6b6b; --c2:#feca57; --c3:#1dd1a1; --c4:#5f27cd;" title="alicante"
-        onclick="createDesertCards()"></button>
+      <button class="circle-btn" style="--c1:#ff6b6b; --c2:#feca57; --c3:#1dd1a1; --c4:#5f27cd;"
+        title="Turist in Alicante" onclick="createTuristCards()"></button>
       <button class="circle-btn" style="--c1:#ff9f43; --c2:#ee5253; --c3:#54a0ff; --c4:#00d2d3;"
-        title="capitales"></button>
+        title="European Capitals" onclick="createCapitalsCards()"></button>
       <button class="circle-btn" style="--c1:#1dd1a1; --c2:#10ac84; --c3:#f368e0; --c4:#5f27cd;"
         title="la mar"></button>
       <button class="circle-btn" style="--c1:#ff6b6b; --c2:#48dbfb; --c3:#ff9f43; --c4:#341f97;"
@@ -39,24 +43,37 @@
         title="salvamento"></button>
       <button class="arrow-btn">&gt;</button>
     </div>
+
     <div id="cards">
     </div>
   </main>
 
   <my-footer></my-footer>
+
   <script>
-    const url = "https://api.open-meteo.com/v1/forecast?latitude=38.3452&longitude=-0.4815&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth&forecast_days=1";
+    const url_temperatures = "https://api.open-meteo.com/v1/forecast?latitude=38.3452&longitude=-0.4815&hourly=temperature_2m,relative_humidity_2m,dew_point_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth&forecast_days=1";
+    const url_capitals = "https://api.open-meteo.com/v1/forecast?latitude=40.4165,51.5085,41.8919,48.8534,52.5244,55.6759,38.7167,46.9481&longitude=-3.7026,-0.1257,12.5113,2.3488,13.4105,12.5655,-9.1333,7.4474&hourly=temperature_2m,precipitation_probability,relative_humidity_2m&forecast_days=1";
     let jsonData;
     let cardRoot = document.getElementById("cards");
-    let temperatureInfo, humidityInfo, precipitationInfo
+    let temperatureInfo, humidityInfo, precipitationInfo, capitalsInfo, capitalsInfoPrecipitation, capitalsInfoHumidity
 
-    async function getDataFromURL() {
-      await fetch(url)
+    async function getTemperatureDataFromURL() {
+      await fetch(url_temperatures)
         .then(response => response.json())
         .then(data => {
           setTemperatureInfo(data)
           setHumidityInfo(data)
           setPrecipitationInfo(data)
+          createWelcomeTitle();
+          view();
+        })
+    }
+
+    async function getCapitalsDataFromURL() {
+      await fetch(url_capitals)
+        .then(response => response.json())
+        .then(data => {
+          setCapitalsData(data)
           view();
         })
     }
@@ -94,6 +111,39 @@
       }
     }
 
+    function setCapitalsData(data) {
+      capitalsInfo = {
+        capitalMadrid: data[0].hourly.temperature_2m[13],
+        capitalLondon: data[1].hourly.temperature_2m[13],
+        capitalRome: data[2].hourly.temperature_2m[13],
+        capitalParis: data[3].hourly.temperature_2m[13],
+        capitalBerlin: data[4].hourly.temperature_2m[13],
+        capitalCopenhagen: data[5].hourly.temperature_2m[13],
+        capitalLisboa: data[6].hourly.temperature_2m[13],
+        capitalSuiza: data[7].hourly.temperature_2m[13]
+      }
+      capitalsInfoPrecipitation = {
+        capitalMadrid: data[0].hourly.precipitation_probability[13],
+        capitalLondon: data[1].hourly.precipitation_probability[13],
+        capitalRome: data[2].hourly.precipitation_probability[13],
+        capitalParis: data[3].hourly.precipitation_probability[13],
+        capitalBerlin: data[4].hourly.precipitation_probability[13],
+        capitalCopenhagen: data[5].hourly.precipitation_probability[13],
+        capitalLisboa: data[6].hourly.precipitation_probability[13],
+        capitalSuiza: data[7].hourly.precipitation_probability[13]
+      }
+      capitalsInfoHumidity = {
+        capitalMadrid: data[0].hourly.relative_humidity_2m[13],
+        capitalLondon: data[1].hourly.relative_humidity_2m[13],
+        capitalRome: data[2].hourly.relative_humidity_2m[13],
+        capitalParis: data[3].hourly.relative_humidity_2m[13],
+        capitalBerlin: data[4].hourly.relative_humidity_2m[13],
+        capitalCopenhagen: data[5].hourly.relative_humidity_2m[13],
+        capitalLisboa: data[6].hourly.relative_humidity_2m[13],
+        capitalSuiza: data[7].hourly.relative_humidity_2m[13]
+      }
+    }
+
     function view() {
       console.log(temperatureInfo);
       console.log(humidityInfo);
@@ -105,15 +155,19 @@
       let title = document.createElement("h2");
       let value = document.createElement("div");
       let description = document.createElement("div");
+      let image = document.createElement("img");
 
       element.classList.add("card");
       value.classList.add("value");
       description.classList.add("info");
+      image.classList.add("gif");
 
       title.textContent = cardTitle;
       value.textContent = jsonData;
       description.textContent = cardDescription;
+      image.src = "../media/gifs/rain.gif"
 
+      element.append(image);
       element.append(description);
       element.append(value);
       element.append(title);
@@ -121,15 +175,58 @@
       cardRoot.append(element);
     }
 
-    function createDesertCards() {
-      createCard("Temperature", "Temperature at 12", temperatureInfo.temperature_9)
+    function createTuristCards() {
+      resetCards();
+      createCard("Temperature C°", "Temperature at 10AM", temperatureInfo.temperature_9);
+      createCard("Temperature C°", "Temperature at 13PM", temperatureInfo.temperature_12);
+      createCard("Temperature C°", "Temperature at 16PM", temperatureInfo.temperature_15);
+      createCard("Temperature C°", "Temperature at 18PM", temperatureInfo.temperature_17);
+      createCard("Temperature C°", "Temperature at 21PM", temperatureInfo.temperature_20);
+      createCard("Humidity %", "Humidity at 22PM", humidityInfo.humidity_22);
+
+      let card = document.getElementsByClassName("card")[0];
+      let centerX = window.innerWidth / 2;
+      let centerY = window.innerHeight / 2;
+      let distanceToMouseX, distanceToMouseY;
+      document.addEventListener('mousemove', event => {
+        distanceToMouseX = (event.clientX - centerX) / 10;
+        distanceToMouseY = (event.clientY - centerY) / 10;
+        card.style.transform = `perspective(1000px) rotateY(${distanceToMouseX}deg) rotateX(${distanceToMouseY}deg)`
+      });
     }
 
-    getDataFromURL();
+    function createCapitalsCards() {
+      resetCards();
+      createCard("Temperature C°", "Madrid, Spain", capitalsInfo.capitalMadrid);
+      createCard("Rain Probability %", "Madrid, Spain", capitalsInfoPrecipitation.capitalMadrid);
+      createCard("Humidity %", "Madrid, Spain", capitalsInfoHumidity.capitalMadrid);
+      createCard("Rain Probability %", "London, UK", capitalsInfoPrecipitation.capitalLondon);
+      createCard("Humidity %", "London, UK", capitalsInfoHumidity.capitalLondon);
+      createCard("Temperature C°", "Rome, Italy", capitalsInfo.capitalRome);
+      createCard("Humidity %", "Rome, Italy", capitalsInfoHumidity.capitalRome);
+      createCard("Temperature C°", "Paris, France", capitalsInfo.capitalParis);
+      createCard("Rain Probability %", "Paris, France", capitalsInfoPrecipitation.capitalParis);
+      createCard("Rain Probability %", "Copenhagen, Denmark", capitalsInfoPrecipitation.capitalCopenhagen);
+      createCard("Humidity %", "Copenhagen, Denmark", capitalsInfoHumidity.capitalCopenhagen);
+      createCard("Temperature C°", "Bern, Schweiz", capitalsInfo.capitalSuiza);
+      createCard("Rain Probability %", "Bern, Schweiz", capitalsInfoPrecipitation.capitalSuiza);
+      createCard("Temperature C°", "Lisbon, Portuguese", capitalsInfo.capitalLisboa);
+      createCard("Rain Probability %", "Lisbon, Portuguese", capitalsInfoPrecipitation.capitalLisboa);
+      createCard("Humidity %", "Lisbon, Portuguese", capitalsInfoHumidity.capitalLisboa);
+    }
+    function createWelcomeTitle() {
+      let welcome = document.createElement("h3");
+      welcome.textContent = "Select an Ecosystem";
+      cardRoot.append(welcome);
+    }
+    function resetCards() {
+      cardRoot.textContent = "";
+    }
+
+    getTemperatureDataFromURL();
+    getCapitalsDataFromURL();
+
   </script>
-  <script src='../js/weather.js'></script>
-  <script src='../js/header.js'></script>
-  <script src='../js/footer.js'></script>
 </body>
 
 </html>
