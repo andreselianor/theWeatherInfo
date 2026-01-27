@@ -64,10 +64,21 @@ my-footer{
     color: #555;
 }
 
+.layer{
+    position: relative;
+}
+
 .gif {
     width: 30px;
     height: 30px;
     object-fit: cover;
+    position: absolute;
+}
+
+.border{
+    width: 30px;
+    height: 30px;
     border: solid 1px grey;
     border-radius: 4px;
+    position: absolute;
 }
