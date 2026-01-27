@@ -91,3 +91,9 @@ my-footer {
     position: absolute;
     left: -13px;
 }
+
+@media (width < 450px) {
+    #cards {
+        margin-top: 20px;
+    }
+}
