@@ -119,9 +119,7 @@ Licencia MIT
 Copyright (c) 2026
 
 Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia de este software y de los archivos de documentación asociados (el "Software"),  
-para utilizar el Software sin restricción alguna, incluyendo, sin limitación, los derechos de uso, copia, modificación, fusión, publicación, distribución,  
-sublicencia y/o venta de copias del Software, así como para permitir a las personas a las que se les proporcione el Software a hacer lo mismo, sujeto a  
-las siguientes condiciones:
+para utilizar el Software sin restricción alguna, incluyendo, sin limitación, los derechos de uso, copia, modificación, fusión, publicación, distribución, sublicencia y/o venta de copias del Software, así como para permitir a las personas a las que se les proporcione el Software a hacer lo mismo, sujeto a  las siguientes condiciones:
 
 El aviso de copyright anterior y este aviso de permiso deberán incluirse en todas las copias o partes sustanciales del Software.
 
