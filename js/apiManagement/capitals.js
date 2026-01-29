@@ -44,22 +44,22 @@ function setCapitalsData(data) {
 
 function createCapitalsCards() {
   resetCards();
-  createCard("Temperature C°", "Madrid, Spain", capitalsInfo.capitalMadrid);
-  createCard("Rain Probability %", "Madrid, Spain", capitalsInfoPrecipitation.capitalMadrid);
-  createCard("Humidity %", "Madrid, Spain", capitalsInfoHumidity.capitalMadrid);
-  createCard("Rain Probability %", "London, UK", capitalsInfoPrecipitation.capitalLondon);
-  createCard("Humidity %", "London, UK", capitalsInfoHumidity.capitalLondon);
-  createCard("Temperature C°", "Rome, Italy", capitalsInfo.capitalRome);
-  createCard("Humidity %", "Rome, Italy", capitalsInfoHumidity.capitalRome);
-  createCard("Temperature C°", "Paris, France", capitalsInfo.capitalParis);
-  createCard("Rain Probability %", "Paris, France", capitalsInfoPrecipitation.capitalParis);
-  createCard("Rain Probability %", "Copenhagen, Denmark", capitalsInfoPrecipitation.capitalCopenhagen);
-  createCard("Humidity %", "Copenhagen, Denmark", capitalsInfoHumidity.capitalCopenhagen);
+  createCard("Temperature C°", "Madrid, Spain", capitalsInfo.capitalMadrid, ["sun"]);
+  createCard("Rain Probability %", "Madrid, Spain", capitalsInfoPrecipitation.capitalMadrid, ["cloudsun"]);
+  createCard("Humidity %", "Madrid, Spain", capitalsInfoHumidity.capitalMadrid, ["rain"]);
+  createCard("Rain Probability %", "London, UK", capitalsInfoPrecipitation.capitalLondon, ["cloudsun"]);
+  createCard("Humidity %", "London, UK", capitalsInfoHumidity.capitalLondon, ["rain"]);
+  createCard("Temperature C°", "Rome, Italy", capitalsInfo.capitalRome, ["rain"]);
+  createCard("Humidity %", "Rome, Italy", capitalsInfoHumidity.capitalRome, ["rain"]);
+  createCard("Temperature C°", "Paris, France", capitalsInfo.capitalParis, ["snowflake1"]);
+  createCard("Rain Probability %", "Paris, France", capitalsInfoPrecipitation.capitalParis, ["cloudsun"]);
+  createCard("Rain Probability %", "Copenhagen, Denmark", capitalsInfoPrecipitation.capitalCopenhagen, ["cloudsun"]);
+  createCard("Humidity %", "Copenhagen, Denmark", capitalsInfoHumidity.capitalCopenhagen, ["rain"]);
   createCard("Temperature C°", "Bern, Schweiz", capitalsInfo.capitalSuiza);
-  createCard("Rain Probability %", "Bern, Schweiz", capitalsInfoPrecipitation.capitalSuiza);
+  createCard("Rain Probability %", "Bern, Schweiz", capitalsInfoPrecipitation.capitalSuiza, ["cloudsun"]);
   createCard("Temperature C°", "Lisbon, Portuguese", capitalsInfo.capitalLisboa);
-  createCard("Rain Probability %", "Lisbon, Portuguese", capitalsInfoPrecipitation.capitalLisboa);
-  createCard("Humidity %", "Lisbon, Portuguese", capitalsInfoHumidity.capitalLisboa);
+  createCard("Rain Probability %", "Lisbon, Portuguese", capitalsInfoPrecipitation.capitalLisboa, ["cloudsun"]);
+  createCard("Humidity %", "Lisbon, Portuguese", capitalsInfoHumidity.capitalLisboa, ["rain"]);
 }
 
 function resetCards() {

@@ -22,12 +22,12 @@ function setAvignonData(data) {
 
 function createAvignon() {
   resetCards();
-  createCard("Cloud cover %", "Avignon min clouds", avignon.cloud_min);
-  createCard("Cloud cover %", "Avignon mean clouds", avignon.cloud_mean);
-  createCard("Cloud cover %", "Avignon max clouds", avignon.cloud_max);
-  createCard("Wind speed km/h", "Avignon wind min", avignon.wind_min);
-  createCard("Wind speed km/h", "Avignon wind mean", avignon.wind_mean);
-  createCard("Wind speed km/h", "Avignon wind max", avignon.wind_max);
+  createCard("Cloud cover %", "Avignon min clouds", avignon.cloud_min, ["cloudrain"]);
+  createCard("Cloud cover %", "Avignon mean clouds", avignon.cloud_mean, ["cloudrain"]);
+  createCard("Cloud cover %", "Avignon max clouds", avignon.cloud_max, ["cloudrain"]);
+  createCard("Wind speed km/h", "Avignon wind min", avignon.wind_min, ["cloudsun"]);
+  createCard("Wind speed km/h", "Avignon wind mean", avignon.wind_mean, ["cloudsun"]);
+  createCard("Wind speed km/h", "Avignon wind max", avignon.wind_max, ["cloudsun"]);
 }
 
 function resetCards() {

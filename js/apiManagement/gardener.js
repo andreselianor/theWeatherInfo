@@ -21,11 +21,11 @@ function setGardenerData(data) {
 
 function createGardener() {
   resetCards();
-  createCard("Temperature C°", "Kenya soil temperature", gardener.soil_6cm);
-  createCard("Moisture m³/m³", "Kenya moisture", gardener.soil_moisture);
-  createCard("Temperature C°", "Kenya temperature", gardener.temperature_2m);
-  createCard("Humidity %", "Kenya humidity air", gardener.humidity);
-  createCard("Precipitation %", "Kenya rain probability", gardener.precipitation);
+  createCard("Temperature C°", "Kenya soil temperature", gardener.soil_6cm, ["leaf"]);
+  createCard("Moisture m³/m³", "Kenya moisture", gardener.soil_moisture, ["leaf"]);
+  createCard("Temperature C°", "Kenya temperature", gardener.temperature_2m, ["leaf"]);
+  createCard("Humidity %", "Kenya humidity air", gardener.humidity, ["rain"]);
+  createCard("Precipitation %", "Kenya rain probability", gardener.precipitation, ["sun"]);
 }
 
 function resetCards() {

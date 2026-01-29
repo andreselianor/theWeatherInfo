@@ -20,10 +20,10 @@ function setSeaLevelsData(data) {
 
 function createSeaLevels() {
   resetCards();
-  createCard("hPA", "Sea Pressure", seaLevels.seaPressure);
-  createCard("hPA", "Sea surface Pressure", seaLevels.surfacePressure);
-  createCard("m", "Visibility", seaLevels.visibility);
-  createCard("km/h", "Wind Speed at 10m", seaLevels.windSpeed);
+  createCard("hPA", "Sea Pressure", seaLevels.seaPressure, ["sea3"]);
+  createCard("hPA", "Sea surface Pressure", seaLevels.surfacePressure, ["sea3"]);
+  createCard("m", "Visibility", seaLevels.visibility, ["sea3"]);
+  createCard("km/h", "Wind Speed at 10m", seaLevels.windSpeed, ["sea3"]);
 }
 
 function resetCards() {

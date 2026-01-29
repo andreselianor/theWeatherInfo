@@ -27,14 +27,14 @@ function setColdestData(data) {
 
 function createColdest() {
   resetCards();
-  createCard("Temperature C°", "Yakutsk temperature", coldest.temperature);
-  createCard("Humidity %", "Yakutsk humidty", coldest.humidity);
-  createCard("Termic Sensation C°", "Yakutsk termic sensation", coldest.aparentTemperature);
+  createCard("Temperature C°", "Yakutsk temperature", coldest.temperature, ["snowflake1"]);
+  createCard("Humidity %", "Yakutsk humidty", coldest.humidity, ["snowflake1"]);
+  createCard("Termic Sensation C°", "Yakutsk termic sensation", coldest.aparentTemperature, ["snowflake1"]);
   createCard("is daytime?", "Yakutsk daytime", coldest.day);
   createCard("Wind Speed km/h", "Yakutsk wind speed", coldest.windSpeed);
   createCard("Wind Direction °", "Yakutsk wind direction", coldest.windDirection);
   createCard("Wind Gusts km/h", "Yakutsk wind gusts", coldest.windGusts);
-  createCard("Precipitation mm", "Yakutsk precipitation", coldest.precipitation);
+  createCard("Precipitation mm", "Yakutsk precipitation", coldest.precipitation, ["cloudrain"]);
   createCard("Rain mm", "Yakutsk rain", coldest.rain);
   createCard("Showers mm", "Yakutsk showers", coldest.showers);
   createCard("Snowfall mm", "Yakutsk snowfall", coldest.snowfall);

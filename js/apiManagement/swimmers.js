@@ -62,23 +62,23 @@ function setSwimmersData(data) {
 function createSwimmers() {
   resetCards();
   createCard("UV value", "Malaga UV value", swimmers.uvMalaga);
-  createCard("Sunset Hour", "Malaga Sunset", swimmers.sunsetMalaga);
+  createCard("Sunset Hour", "Malaga Sunset", swimmers.sunsetMalaga, ["sunset5"]);
   createCard("Temperature max C°", "Malaga Temperature", swimmers.temperatureMalaga);
   createCard("UV value", "Almeria UV value", swimmers.uvAlmeria);
   createCard("Temperature max C°", "Malaga Temperature", swimmers.temperatureAlmeria);
   createCard("UV value", "Murcia UV value", swimmers.uvMurcia);
-  createCard("Sunset Hour", "Murcia Sunset", swimmers.sunsetMurcia);
+  createCard("Sunset Hour", "Murcia Sunset", swimmers.sunsetMurcia, ["sunset5"]);
   createCard("Temperature max C°", "Murcia Temperature", swimmers.temperatureMurcia);
   createCard("Temperature max C°", "Alicante Temperature", swimmers.temperatureAlicante);
   createCard("UV value", "Valencia UV value", swimmers.uvValencia);
-  createCard("Sunset Hour", "Valencia Sunset", swimmers.sunsetValencia);
+  createCard("Sunset Hour", "Valencia Sunset", swimmers.sunsetValencia, ["sunset5"]);
   createCard("Temperature max C°", "Valencia Temperature", swimmers.temperatureValencia);
   createCard("Temperature max C°", "Castellon Temperature", swimmers.temperatureCastellon);
   createCard("UV value", "Tarragona UV value", swimmers.uvTarragona);
   createCard("UV value", "Barcelona UV value", swimmers.uvBarcelona);
-  createCard("Sunset Hour", "Barcelona Sunset", swimmers.sunsetBarcelona);
+  createCard("Sunset Hour", "Barcelona Sunset", swimmers.sunsetBarcelona, ["sunset5"]);
   createCard("Temperature max C°", "Barcelona Temperature", swimmers.temperatureBarcelona);
-  createCard("Sunset Hour", "Girona Sunset", swimmers.sunsetGirona);
+  createCard("Sunset Hour", "Girona Sunset", swimmers.sunsetGirona, ["sunset5"]);
   createCard("Temperature max C°", "Girona Temperature", swimmers.temperatureGirona);
 }
 

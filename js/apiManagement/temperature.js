@@ -49,10 +49,10 @@ function setPrecipitationInfo(data) {
 
 function createTuristCards() {
     resetCards();
-    createCard("Temperature C°", "Temperature at 10AM", temperatureInfo.temperature_9, ["rain", "rain", "rain"]);
-    createCard("Temperature C°", "Temperature at 13PM", temperatureInfo.temperature_12);
-    createCard("Temperature C°", "Temperature at 16PM", temperatureInfo.temperature_15);
-    createCard("Temperature C°", "Temperature at 18PM", temperatureInfo.temperature_17);
+    createCard("Temperature C°", "Temperature at 10AM", temperatureInfo.temperature_9,["suncat"] );
+    createCard("Temperature C°", "Temperature at 13PM", temperatureInfo.temperature_12,["suncat"]);
+    createCard("Temperature C°", "Temperature at 16PM", temperatureInfo.temperature_15,["suncat"]);
+    createCard("Temperature C°", "Temperature at 18PM", temperatureInfo.temperature_17,["suncat"]);
     createCard("Temperature C°", "Temperature at 21PM", temperatureInfo.temperature_20);
     createCard("Humidity %", "Humidity at 22PM", humidityInfo.humidity_22);
 }

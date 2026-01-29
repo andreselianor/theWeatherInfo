@@ -33,14 +33,14 @@ function createDaylight() {
   let today6Name = days[(today.getDay() + 5) % 7];
   let today7Name = days[(today.getDay() + 6) % 7];
   resetCards();
-  createCard("Daylight in hours", `Average Hours at Alicante`, Math.floor((daylight.daylight1) / 3600));
-  createCard("Daylight in seconds", `Alicante at ${todayName}`, daylight.daylight1);
-  createCard("Daylight in seconds", `Alicante at ${today2Name}`, daylight.daylight2);
-  createCard("Daylight in seconds", `Alicante at ${today3Name}`, daylight.daylight3);
-  createCard("Daylight in seconds", `Alicante at ${today4Name}`, daylight.daylight4);
-  createCard("Daylight in seconds", `Alicante at ${today5Name}`, daylight.daylight5);
-  createCard("Daylight in seconds", `Alicante at ${today6Name}`, daylight.daylight6);
-  createCard("Daylight in seconds", `Alicante at ${today7Name}`, daylight.daylight7);
+  createCard("Daylight in hours", `Average Hours at Alicante`, Math.floor((daylight.daylight1) / 3600), ["sun"]);
+  createCard("Daylight in seconds", `Alicante at ${todayName}`, daylight.daylight1, ["sunyellow"]);
+  createCard("Daylight in seconds", `Alicante at ${today2Name}`, daylight.daylight2, ["sunyellow"]);
+  createCard("Daylight in seconds", `Alicante at ${today3Name}`, daylight.daylight3, ["sunyellow"]);
+  createCard("Daylight in seconds", `Alicante at ${today4Name}`, daylight.daylight4, ["sun"]);
+  createCard("Daylight in seconds", `Alicante at ${today5Name}`, daylight.daylight5, ["sunyellow"]);
+  createCard("Daylight in seconds", `Alicante at ${today6Name}`, daylight.daylight6, ["sunyellow"]);
+  createCard("Daylight in seconds", `Alicante at ${today7Name}`, daylight.daylight7, ["sunyellow"]);
 }
 
 function resetCards() {
