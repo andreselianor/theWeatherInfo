@@ -2,7 +2,7 @@
 
 ## 1. Descripción General
 
-**'theWeatherInfo'** es una aplicación web desarrollada como parte de un trabajo formativo para Factoría F5 y su bootcamp **'Full-Stack con React y springboot'**.
+**'theWeatherInfo'** es una aplicación web desarrollada como parte de un trabajo formativo para Factoría F5 y su bootcamp **'Full-Stack con React y Springboot'**.
 El objetivo principal del proyecto es consumir datos meteorológicos de una API externa y mostrar dicha información de forma estructurada y clara al usuario final.
 
 ---
@@ -69,40 +69,63 @@ Esta estructura permite una separación clara entre contenido, estilos y lógica
 
 ## 7. Instalación y Ejecución
 
-Para utilizar la aplicación, no es necesario realizar una instalación compleja.
+Para utilizar la aplicación **no es necesaria una instalación compleja**, sin embargo **no se recomienda abrir el archivo `index.html` directamente** desde el navegador, ya que los navegadores modernos aplican políticas de seguridad (**CORS**) que bloquean ciertas peticiones locales, impidiendo su correcta ejecución.
 
-Pasos a seguir:
+### Pasos a seguir:
 
 1. Clonar o descargar el repositorio.
-2. Abrir el archivo `index.html` en un navegador web moderno.
-3. La aplicación se ejecutará de forma local sin necesidad de configuración adicional.
+2. Ejecutar la aplicación mediante un **servidor local**.  
+   Esto puede hacerse fácilmente usando cualquiera de las siguientes opciones:
+   - **Visual Studio Code + Live Server**
+   - **Node.js**  
+     ```bash
+     npx serve
+     ```
+   - **Python**  
+     ```bash
+     python -m http.server
+     ```
+3. Abrir en el navegador la URL proporcionada por el servidor local  
+   (por ejemplo: `http://localhost:3000` o `http://127.0.0.1:5500`).
 
 ---
 
-## 8. Alcance y Limitaciones
+## 8. Uso de la IA Generativa
 
-Este proyecto tiene un alcance educativo y demostrativo. No está diseñado para un uso comercial ni para entornos de producción.
+Durante el desarrollo de este proyecto se ha utilizado **Inteligencia Artificial Generativa (IA Generativa)** como herramienta de apoyo en distintos momentos del proceso, siempre con el objetivo de mejorar la comprensión, la eficiencia y la calidad del resultado final.
 
-Limitaciones conocidas:
+La IA Generativa se ha empleado en los siguientes escenarios:
 
-- Funcionalidad básica.
-- Dependencia de una API externa.
-- No incluye autenticación ni almacenamiento de datos.
+- **Comprensión de la API Open-Meteo** y de su funcionamiento general, incluyendo la estructura de las respuestas y los parámetros disponibles.
+- **Investigación y selección de información relevante** para el proyecto a partir de la documentación oficial de los distintos *endpoints* de la API.
+- **Creación de estilos sencillos, limpios y coherentes** para las diferentes tarjetas y componentes visuales de la interfaz.
+- **Automatización del trabajo repetitivo** en la construcción de la página mediante la generación y reutilización de componentes `.js`.
+- **Revisión de errores y detección de bugs**, ayudando a identificar problemas de lógica, estructura y estilos durante el desarrollo.
 
----
-
-## 9. Uso Académico
-
-Este proyecto ha sido desarrollado exclusivamente con fines educativos como parte de un trabajo de formación. Su objetivo principal es demostrar la comprensión de conceptos básicos de desarrollo web.
+La utilización de IA Generativa ha servido como un **soporte técnico y conceptual**, sin sustituir el trabajo de diseño, implementación y toma de decisiones realizadas por el autor del proyecto.
 
 ---
 
-## 10. Autor
+## 9. Uso Formativo
 
-Proyecto desarrollado por el alumno como parte de su formación académica.
+Este proyecto ha sido desarrollado dentro del bootcamp de Factoría F5 **'Full-Stack coders with Springboot and React - 2025'**
 
 ---
 
 ## 11. Licencia
 
-Este proyecto no dispone de una licencia específica y su uso queda limitado a fines educativos.
+Licencia MIT
+
+Copyright (c) 2026
+
+Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia de este software y de los archivos de documentación asociados (el "Software"),  
+para utilizar el Software sin restricción alguna, incluyendo, sin limitación, los derechos de uso, copia, modificación, fusión, publicación, distribución,  
+sublicencia y/o venta de copias del Software, así como para permitir a las personas a las que se les proporcione el Software a hacer lo mismo, sujeto a  
+las siguientes condiciones:
+
+El aviso de copyright anterior y este aviso de permiso deberán incluirse en todas las copias o partes sustanciales del Software.
+
+EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUYENDO, PERO NO LIMITÁNDOSE A, LAS GARANTÍAS DE COMERCIALIZACIÓN,  
+IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS AUTORES O TITULARES DE LOS DERECHOS DE AUTOR SERÁN RESPONSABLES DE NINGUNA  
+RECLAMACIÓN, DAÑO U OTRA RESPONSABILIDAD, YA SEA EN UNA ACCIÓN CONTRACTUAL, EXTRACONTRACTUAL O DE CUALQUIER OTRO TIPO, DERIVADA DE, O EN CONEXIÓN CON, EL  
+SOFTWARE O EL USO U OTRO TIPO DE ACCIONES EN EL SOFTWARE.
