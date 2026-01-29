@@ -1,6 +1,11 @@
 {
     "endpoints": [
         {
+            "endpoint": "'endpoint'",
+            "title": "'title'",
+            "description": "'description'"
+        },
+        {
             "endpoint": "https://open-meteo.com/",
             "title": "API de 'Open-Meteo'",
             "description": "Esta URL nos lleva a la pagina principal de la API, desde donde podemos consultar los endpoints que contienen la información metereológica en un formato JSON, respuesta HTTP de la peticion POST."
